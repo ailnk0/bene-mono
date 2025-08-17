@@ -1,0 +1,45 @@
+name: Publish bene-mono-cli
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.14.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.8'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync package version with Git tag
+        run: |
+          VERSION=$(echo "${{ github.ref_name }}" | sed 's/^v//')
+          echo "Publishing version $VERSION"
+          cd packages/bene-mono-cli
+          pnpm version "$VERSION" --allow-same-version --no-git-tag-version
+          cd ../../
+
+      - name: Build bene-mono-cli
+        run: pnpm --filter bene-mono-cli... build
+
+      - name: Publish to npm
+        run: pnpm --filter bene-mono-cli publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
