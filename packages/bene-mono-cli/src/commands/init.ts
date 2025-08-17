@@ -7,32 +7,32 @@ import prompts from 'prompts';
 
 export const init = new Command()
   .name('init')
-  .description('initialize monorepo project')
+  .description('Initialize a monorepo project')
   .action(async () => {
     try {
       // Prompt
-      const { type: templateType, name: templatName } = await prompts([
+      const { type: templateType, name: templateName } = await prompts([
         {
           type: 'select',
           name: 'type',
-          message: 'Select a monorepo template: ',
+          message: 'Select a monorepo template:',
           choices: [
-            { title: 'Next.js', value: 'monorepo-next' },
-            { title: 'Vite-React', value: 'monorepo-vite' },
+            { title: 'Turbo v2 | Vite v7  | React v19 | shadcn v4 (Default)', value: 'turbo2-vite7-react19-shadcn4' },
+            { title: 'Turbo v2 | Next v15 | React v19 | shadcn v4', value: 'turbo2-next15-react19-shadcn4' },
           ],
           initial: 0,
         },
         {
           type: 'text',
           name: 'name',
-          message: 'Project name: ',
+          message: 'Project name:',
           initial: 'my-monorepo',
           format: (value: string) => value.trim(),
           validate: (value: string) => (value.length > 128 ? `Name should be less than 128 characters.` : true),
         },
       ]);
       const cwd = process.cwd();
-      const projectPath = path.join(cwd, templatName);
+      const projectPath = path.join(cwd, templateName);
       console.log(`Creating a new project in ${projectPath}...`);
 
       // Path validation.
@@ -42,8 +42,8 @@ export const init = new Command()
         console.error(error);
         process.exit(1);
       }
-      if (fs.existsSync(path.resolve(cwd, templatName, 'package.json'))) {
-        console.error(`A project with the name ${templatName} already exists.`);
+      if (fs.existsSync(path.resolve(cwd, templateName, 'package.json'))) {
+        console.error(`A project with the name ${templateName} already exists.`);
         process.exit(1);
       }
 
@@ -51,7 +51,6 @@ export const init = new Command()
       const repo = 'bene-mono';
       const branch = 'main';
       const templateUrl = `https://codeload.github.com/ailnk0/${repo}/tar.gz/${branch}`;
-
       const templatePath = path.join(os.tmpdir(), `${repo}-${Date.now()}`);
       await fs.ensureDir(templatePath);
       const response = await fetch(templateUrl);
@@ -72,9 +71,11 @@ export const init = new Command()
       ]);
       const extractedPath = path.resolve(templatePath, templateType);
       await fs.move(extractedPath, projectPath);
+
+      // Clean up
       await fs.remove(templatePath);
 
-      console.log(`Creating a new ${templateType}.`);
+      console.log(`Created a new ${templateType}.`);
     } catch (error) {
       console.error(error);
     }
