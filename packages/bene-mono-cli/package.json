@@ -1,0 +1,54 @@
+{
+  "name": "bene-mono-cli",
+  "version": "0.0.1",
+  "description": "A CLI to generate monorepo",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ailnk0",
+    "url": "https://twitter.com/ailnk0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ailnk0/bene-mono.git",
+    "directory": "packages/bene-mono-cli"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "monorepo"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": "./dist/index.js",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "execa": "^9.6.0",
+    "fs-extra": "^11.3.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.0.14",
+    "@types/prompts": "^2.4.9",
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "eslint": "^9.33.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.8.3"
+  }
+}
