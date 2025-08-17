@@ -9,7 +9,7 @@ process.on('SIGTERM', () => process.exit(0));
 
 async function main() {
   const program = new Command()
-    .name('bene-mono')
+    .name('bene-mono-cli')
     .description('A CLI to generate monorepo')
     .version(packageJson.version || '1.0.0', '-v, --version', 'the version number');
 
