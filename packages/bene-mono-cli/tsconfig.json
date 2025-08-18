@@ -1,14 +1,9 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "../../tsconfig.json",
+  "extends": "@workspace/typescript-config/vitejs.json",
   "compilerOptions": {
-    "isolatedModules": false,
-    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  }
 }
