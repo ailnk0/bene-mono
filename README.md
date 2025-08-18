@@ -23,32 +23,32 @@ When you run the command, you will be prompted to select a template and enter a 
 $ pnpm dlx bene-mono-cli init
 
 ? Select a monorepo template: › - Use arrow-keys. Return to submit.
-❯   Turbo v2 | Vite v7  | React v19 | shadcn v4 (Default)
-    Turbo v2 | Next v15 | React v19 | shadcn v4
-
+❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
+    Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
+    
 ? Project name: › my-monorepo
 
 Creating a new project in C:\path\to\your\directory\my-monorepo...
-Created a new turbo2-vite7-react19-shadcn4.
+Created a new turbo2-vite7-react19-tailwind4-shadcn.
 ```
 
 ## Templates
 
 Currently available templates:
 
-1.  **Turbo v2 | Vite v7 | React v19 | shadcn v4**: A frontend template using Vite and React in a Turborepo V2 environment.
-2.  **Turbo v2 | Next v15 | React v19 | shadcn v4**: A full-stack/frontend template using Next.js in a Turborepo V2 environment.
+1.  **Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn**: A frontend template using Vite and React in a Turborepo environment.
+2.  **Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn**: A full-stack/frontend template using Next.js in a Turborepo environment.
 
 Each template provides a ready-to-use monorepo structure managed by Turborepo.
 
-### 1. Turbo v2 | Next v15 | React v19 | shadcn v4
+### 1. Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 A full-stack template using Next.js for the web application.
 
 ```
 .
 ├── apps
-│   └── web/          # Next.js 15 App
+│   └── web/          # Next.js App
 │       ├── app/
 │       ├── components/
 │       └── package.json
@@ -62,14 +62,14 @@ A full-stack template using Next.js for the web application.
 └── turbo.json
 ```
 
-### 2. Turbo v2 | Vite v7 | React v19 | shadcn v4
+### 2. Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn
 
 A frontend-focused template using Vite for a fast development experience.
 
 ```
 .
 ├── apps
-│   └── web/          # Vite + React 19 App
+│   └── web/          # Vite + React App
 │       ├── src/
 │       ├── index.html
 │       └── package.json
