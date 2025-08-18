@@ -18,8 +18,8 @@ export const init = new Command()
           message: 'Select a monorepo template:',
           choices: [
             {
-              title: 'Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)', 
-              value: 'turbo2-vite7-react19-tailwind4-shadcn', 
+              title: 'Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)',
+              value: 'turbo2-vite7-react19-tailwind4-shadcn',
             },
             {
               title: 'Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn',
@@ -34,7 +34,8 @@ export const init = new Command()
           message: 'Project name:',
           initial: 'my-monorepo',
           format: (value: string) => value.trim(),
-          validate: (value: string) => (value.length > 128 ? `Name should be less than 128 characters.` : true),
+          validate: (value: string) =>
+            value.length > 128 ? `Name should be less than 128 characters.` : true,
         },
       ]);
       const cwd = process.cwd();

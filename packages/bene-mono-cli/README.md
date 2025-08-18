@@ -25,7 +25,7 @@ $ pnpm dlx bene-mono-cli init
 ? Select a monorepo template: › - Use arrow-keys. Return to submit.
 ❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
     Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
-    
+
 ? Project name: › my-monorepo
 
 Creating a new project in C:\path\to\your\directory\my-monorepo...
