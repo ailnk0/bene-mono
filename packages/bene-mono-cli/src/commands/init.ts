@@ -17,8 +17,14 @@ export const init = new Command()
           name: 'type',
           message: 'Select a monorepo template:',
           choices: [
-            { title: 'Turbo v2 | Vite v7  | React v19 | shadcn v4 (Default)', value: 'turbo2-vite7-react19-shadcn4' },
-            { title: 'Turbo v2 | Next v15 | React v19 | shadcn v4', value: 'turbo2-next15-react19-shadcn4' },
+            {
+              title: 'Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)', 
+              value: 'turbo2-vite7-react19-tailwind4-shadcn', 
+            },
+            {
+              title: 'Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn',
+              value: 'turbo2-next15-react19-tailwind4-shadcn',
+            },
           ],
           initial: 0,
         },
