@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default",
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
@@ -11,13 +10,10 @@
     "module": "NodeNext",
     "moduleDetection": "force",
     "moduleResolution": "NodeNext",
-    "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ES2022"
   }
 }
