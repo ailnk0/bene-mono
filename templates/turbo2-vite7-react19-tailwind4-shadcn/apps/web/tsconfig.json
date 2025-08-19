@@ -1,5 +1,5 @@
 {
-  "extends": "@workspace/typescript-config/vitejs.json",
+  "extends": "@workspace/typescript-config/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
