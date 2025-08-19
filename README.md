@@ -24,7 +24,6 @@ $ pnpm dlx bene-mono-cli init
 
 ? Select a monorepo template: › - Use arrow-keys. Return to submit.
 ❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
-    Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | config
     Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 ? Project name: › my-monorepo
@@ -38,8 +37,7 @@ Created a new turbo2-vite7-react19-tailwind4-shadcn.
 Currently available templates:
 
 1.  **Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn**: A frontend template using Vite and React in a Turborepo environment.
-2.  **Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn | config**: A frontend template using Vite and React in a Turborepo environment with additional configuration.
-3.  **Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn**: A full-stack/frontend template using Next.js in a Turborepo environment.
+2.  **Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn**: A full-stack/frontend template using Next.js in a Turborepo environment.
 
 Each template provides a ready-to-use monorepo structure managed by Turborepo.
 
@@ -64,16 +62,7 @@ A frontend-focused template using Vite for a fast development experience.
 └── turbo.json
 ```
 
-### 2. Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn | config
-
-This template enhances the basic Vite setup with several key configurations, providing the following differences from the standard version:
-
-- **Enhanced ESLint rules**: Includes pre-configured rules for `import-sort` (organizing imports) and `TanStack Query`.
-- **Default Prettier configuration**: Provides a `.prettierrc.json` file for consistent code formatting.
-- **.gitattributes file**: Manages line endings and other Git settings, ensuring repository consistency.
-- **Stricter TypeScript configuration**: Features a more robust `tsconfig.json` for enhanced type safety.
-
-### 3. Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
+### 2. Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 A full-stack template using Next.js for the web application.
 
