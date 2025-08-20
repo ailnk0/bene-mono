@@ -1,7 +1,7 @@
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 /** @type {import('eslint').Linter.Config[]} */
-export const config = [
+export default [
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
@@ -12,9 +12,12 @@ export const config = [
         'error',
         {
           groups: [
-            ['^react', '^@?\\w', '^src', '^\\./', '^\\../'],
-            ['^.+\\.style$'],
-            ['^.+\\.(gif|png|svg|jpg)$'],
+            ['^\\u0000'], // side effects
+            ['^react', '^@?\\w'], // react + externals
+            ['^@(?:workspace|repo)/(.*)$'], // monorepo scopes
+            ['^@/(.*)$', '^\\.'], // aliases + relatives
+            ['^.+\\.(css|scss|sass|less)$'], // styles
+            ['^'], // everything else
           ],
         },
       ],

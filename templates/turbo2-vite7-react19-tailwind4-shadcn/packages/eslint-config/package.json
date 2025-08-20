@@ -4,10 +4,7 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./import-sort": "./eslint-import-sort-config.js",
-    "./tanstack-query": "./eslint-tanstack-query-config.js",
-    "./ui": "./eslint-ui-config.js",
-    "./vite": "./eslint-vite-config.js"
+    "./recommanded": "./eslint.config.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
