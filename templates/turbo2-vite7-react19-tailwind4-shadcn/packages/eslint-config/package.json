@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./recommanded": "./eslint.config.js"
+    "./base": "./eslint.config.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
