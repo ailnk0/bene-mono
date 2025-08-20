@@ -97,10 +97,7 @@ export default [
 
 **Step 2: Configure VS Code Settings**
 
-Create a `settings.json` file inside the `.vscode` directory at the root of the project and add the following content. This tells the VS Code ESLint extension to automatically fix issues, including import order, upon saving.
-
-- **File Path:** `.vscode/settings.json`
-- **Content:**
+Modify the `.vscode/settings.json` file at the root of the project to include the following content. This tells the VS Code ESLint extension to automatically fix issues, including import order, upon saving.
 
 ```json
 {
