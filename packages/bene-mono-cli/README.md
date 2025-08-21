@@ -277,15 +277,27 @@ This is the base configuration for **browser-based application code**.
 - **JSX**: Configured for the modern React JSX transform (`jsx: react-jsx`).
 - **Module Resolution**: Uses `"bundler"` mode, which is optimized for modern bundlers like Vite and webpack.
 - **Linting**: Enforces `strict` mode and other rules (`noUnusedLocals`, `noUnusedParameters`) for high code quality.
+- **Emit**: `noEmit: true` is set because this configuration is for type-checking only; the bundler (Vite) handles the actual file emission. `composite: true` is enabled to support project references in a monorepo.
+
+##### `tsconfig.lib.json`
+
+This is the base configuration for **library code**, such as a shared UI component package.
+
+- **Environment**: Targets modern browsers (`target: ES2022`) and includes `DOM` libraries.
+- **JSX**: JSX support is not included, as libraries are often framework-agnostic at their core.
+- **Module Resolution**: Also uses `"bundler"` mode.
+- **Linting**: Enforces the same `strict` type-checking rules as the app configuration.
+- **Emit**: `declaration: true` and `emitDeclarationOnly: true` are set to generate type definition files (`.d.ts`). This is essential for other projects in the monorepo to consume the library with full type support. `composite: true` is also enabled for project references.
 
 ##### `tsconfig.node.json`
 
-This is a stricter configuration for files that **run in a Node.js environment**.
+This is a base configuration for files that **run in a Node.js environment**, such as `vite.config.ts` or other build scripts.
 
 - **Environment**: Targets a modern version of Node.js (`target: ES2023`) and does **not** include `DOM` libraries.
 - **JSX**: JSX support is not included.
 - **Module Resolution**: Also uses `"bundler"` mode.
-- **Linting**: Enforces the same `strict` type-checking rules as the app configuration.
+- **Linting**: Enforces the same `strict` type-checking rules as the other configurations to ensure code quality for build scripts and configuration files.
+- **Emit**: `noEmit: true` is set because this configuration is only for type-checking Node.js-specific files.
 
 ## License
 
