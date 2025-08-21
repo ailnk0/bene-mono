@@ -13,11 +13,10 @@ export default [
         {
           groups: [
             ['^\\u0000'], // side effects
-            ['^react', '^@?\\w'], // react + externals
+            ['^react$', '^@(?!workspace|repo)\\w', '^\\w'], // externals
             ['^@(?:workspace|repo)/(.*)$'], // monorepo scopes
-            ['^@/(.*)$', '^\\.'], // aliases + relatives
+            ['^@/(.*)$', '^\\./', '^\\../'], // aliases + relatives
             ['^.+\\.(css|scss|sass|less)$'], // styles
-            ['^'], // everything else
           ],
         },
       ],
