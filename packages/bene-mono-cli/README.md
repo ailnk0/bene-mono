@@ -12,7 +12,7 @@ This tool helps you quickly bootstrap a new monorepo project with pre-configured
 To create a new monorepo project, run the following command. There is no need for a separate installation.
 
 ```bash
-pnpm dlx bene-mono-cli init
+pnpm dlx bene-mono-cli
 ```
 
 When you run the command, you will be prompted to select a template and enter a project name.
@@ -20,7 +20,7 @@ When you run the command, you will be prompted to select a template and enter a 
 ## Example
 
 ```
-$ pnpm dlx bene-mono-cli init
+$ pnpm dlx bene-mono-cli
 
 ? Select a monorepo template: › - Use arrow-keys. Return to submit.
 ❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
