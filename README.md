@@ -211,6 +211,8 @@ This is an example of a typical root `tsconfig.json` in a project using this tem
   // It points to the actual projects that TypeScript should analyze.
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
   "compilerOptions": {
+    // Must be enabled for TypeScript project references and incremental builds in a monorepo.
+    "composite": true,
     // Sets the base directory for resolving non-relative module names.
     "baseUrl": ".",
     // Creates path aliases for easier importing.
