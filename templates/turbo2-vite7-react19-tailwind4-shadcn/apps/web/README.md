@@ -1,69 +1,37 @@
-# React + TypeScript + Vite
+# Web Application (`web`)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the main Vite and React application for the monorepo.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To start the development server for only this application, run the following command from the **root of the monorepo**:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+pnpm dev --filter=web
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Using Shared Components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+This application is designed to consume shared components from the `@workspace/ui` package. To use a component, import it directly:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```tsx
+// src/App.tsx
+import { Button } from '@workspace/ui/components/button';
+
+function App() {
+  return (
+    <div>
+      <h1>Web App</h1>
+      <Button>Hello from the UI package!</Button>
+    </div>
+  );
+}
+
+export default App;
 ```
+
+## Configuration
+
+- **ESLint & TypeScript**: The configurations for both are inherited from the shared `packages/eslint-config` and `packages/typescript-config` packages. You should not need to modify the local `eslint.config.js` or `tsconfig.json` files for general development.
+- **Vite**: The Vite configuration is managed in `vite.config.ts`.
+- **Tailwind CSS**: The `tailwind.config.js` and `postcss.config.js` files are set up to correctly resolve and process styles from the shared `packages/ui` library.
