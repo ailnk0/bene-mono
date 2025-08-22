@@ -19,6 +19,10 @@ export const initAction = async () => {
             value: 'turbo2-vite7-react19-tailwind4-shadcn',
           },
           {
+            title: 'Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | storybook',
+            value: 'turbo2-vite7-react19-tailwind4-shadcn-storybook',
+          },
+          {
             title: 'Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn',
             value: 'turbo2-next15-react19-tailwind4-shadcn',
           },

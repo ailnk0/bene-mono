@@ -33,6 +33,7 @@ $ pnpm dlx bene-mono-cli
 
 ? Select a monorepo template: › - Use arrow-keys. Return to submit.
 ❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
+❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | storybook
     Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 ? Project name: › my-monorepo
@@ -45,7 +46,7 @@ Created a new turbo2-vite7-react19-tailwind4-shadcn.
 
 Currently available templates:
 
-### 1. Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn
+### Turbo v2 | Vite v7 | React v19 | Tailwind v4 | shadcn
 
 A frontend template using Vite and React in a Turborepo environment. For a detailed guide on the ESLint and TypeScript setup, please see the template's `README.md` file.
 
@@ -60,7 +61,7 @@ A frontend template using Vite and React in a Turborepo environment. For a detai
 └── turbo.json
 ```
 
-### 2. Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
+### Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 A full-stack/frontend template using Next.js in a Turborepo environment.
 
