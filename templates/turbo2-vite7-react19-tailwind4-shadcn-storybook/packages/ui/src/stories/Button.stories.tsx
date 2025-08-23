@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Mail } from 'lucide-react';
 import { fn } from 'storybook/test';
 
-import { Button } from '@/components/button';
+import { Button } from '@workspace/ui/components/button';
 
 const meta = {
   title: 'Example/Button',
