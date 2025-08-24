@@ -18,28 +18,53 @@ This tool helps you quickly bootstrap a new monorepo project with pre-configured
 
 ## Usage
 
-To create a new monorepo project, run the following command. There is no need for a separate installation.
+You can use `bene-mono-cli` to create a new monorepo from scratch or to add a new application to an existing monorepo.
+
+### Creating a new monorepo
+
+To create a new monorepo project, run the following command in an empty directory.
 
 ```bash
 pnpm dlx bene-mono-cli
 ```
 
-When you run the command, you will be prompted to select a template and enter a project name.
+You will be prompted to select a template and enter a project name.
 
-## Example
+**Example**
 
 ```
 $ pnpm dlx bene-mono-cli
 
-? Select a monorepo template: › - Use arrow-keys. Return to submit.
+? Select a template for the new monorepo: › - Use arrow-keys. Return to submit.
 ❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
-❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | storybook
+    Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | storybook
     Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
 
 ? Project name: › my-monorepo
+```
 
-Creating a new project in C:\path\to\your\directory\my-monorepo...
-Created a new turbo2-vite7-react19-tailwind4-shadcn.
+### Adding a new app to an existing monorepo
+
+If you run the same command inside an existing monorepo (one that contains a `pnpm-workspace.yaml` or `turbo.json` file), the CLI will help you add a new application.
+
+```bash
+pnpm dlx bene-mono-cli
+```
+
+The CLI detects the monorepo environment and prompts you to choose a template and name for your new app, which will be placed in the `apps` directory.
+
+**Example**
+
+```
+$ cd <your-monorepo>
+$ pnpm dlx bene-mono-cli
+
+? Select a template for the new app: › - Use arrow-keys. Return to submit.
+❯   Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn (Default)
+    Turbo v2 | Vite v7  | React v19 | Tailwind v4 | shadcn | storybook
+    Turbo v2 | Next v15 | React v19 | Tailwind v4 | shadcn
+
+? What is the name of the new app? › my-app
 ```
 
 ## Templates
