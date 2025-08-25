@@ -11,6 +11,8 @@ export const initAction = async () => {
     const monorepoRoot = findMonorepoRoot(cwd);
 
     if (monorepoRoot) {
+      console.log(`Monorepo root detected: ${monorepoRoot}`);
+      console.log('A new app will be created within the existing monorepo.');
       await initAppAction(monorepoRoot);
     } else {
       await initMonorepoAction(cwd);
