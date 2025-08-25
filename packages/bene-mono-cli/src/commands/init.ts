@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import { Command } from 'commander';
 import prompts from 'prompts';
-import { findMonorepoRoot, downloadTemplate } from '../utils/template-utils';
+import { findMonorepoRoot, downloadTemplate, replaceInFiles } from '../utils/template-utils';
 
 export const initAction = async () => {
   try {
@@ -96,7 +96,7 @@ const initMonorepoAction = async (cwd: string) => {
 };
 
 async function initAppAction(monorepoRoot: string) {
-  const { templateType, appName } = await prompts([
+  const { templateType, appName, workspaceAlias } = await prompts([
     {
       type: 'select',
       name: 'templateType',
@@ -113,12 +113,18 @@ async function initAppAction(monorepoRoot: string) {
       validate: (value: string) =>
         value.length > 128 ? `Name should be less than 128 characters.` : true,
     },
+    {
+      type: 'text',
+      name: 'workspaceAlias',
+      message: 'Enter the workspace alias:',
+      initial: '@workspace',
+    },
   ]);
   console.log(`Selected template: ${templateType}`);
   console.log(`App name: ${appName}`);
 
-  if (!appName || !templateType) {
-    console.log('Template type and app name are required. Exiting.');
+  if (!appName || !templateType || !workspaceAlias) {
+    console.log('Template type, app name and workspace alias are required. Exiting.');
     process.exit(1);
   }
 
@@ -140,6 +146,8 @@ async function initAppAction(monorepoRoot: string) {
     const packageJson = await fs.readJson(packageJsonPath);
     packageJson.name = appName;
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
+
+    await replaceInFiles(appPath, '@workspace', workspaceAlias);
 
     console.log(`App '${appName}' created successfully.`);
   } catch (error) {

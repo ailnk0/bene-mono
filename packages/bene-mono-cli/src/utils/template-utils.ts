@@ -47,3 +47,29 @@ export function findMonorepoRoot(startDir: string): string | null {
   }
   return null;
 }
+
+export async function replaceInFiles(dir: string, search: string, replace: string) {
+  if (search === replace) {
+    return;
+  }
+
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== 'dist') {
+        await replaceInFiles(fullPath, search, replace);
+      }
+    } else if (entry.isFile()) {
+      try {
+        const content = await fs.readFile(fullPath, 'utf-8');
+        if (content.includes(search)) {
+          const newContent = content.replace(new RegExp(search, 'g'), replace);
+          await fs.writeFile(fullPath, newContent, 'utf-8');
+        }
+      } catch {
+        // ignore binary files
+      }
+    }
+  }
+}
